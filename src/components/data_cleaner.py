@@ -5,14 +5,7 @@ import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 
-import joblib
-import cloudpickle
-
-from sklearn.model_selection import train_test_split
-
-from sklearn.preprocessing import FunctionTransformer 
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.pipeline import Pipeline
 
 
 # 1. Function to clean the column names
@@ -39,7 +32,7 @@ def clean_col_names(df: pd.DataFrame) -> pd.DataFrame:
 
 
 class NullValueImputer(BaseEstimator, TransformerMixin):
-    def fit(self, X, y=None):
+    def fit(self, X):
         self.num_cols = X.select_dtypes(include=[np.number]).columns
         self.cat_cols = X.select_dtypes(include=[object]).columns
         
@@ -59,7 +52,6 @@ class NullValueImputer(BaseEstimator, TransformerMixin):
         return X
 
 
-
 if __name__ == "__main__":
     data = pd.read_csv('/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/raw_data/SeoulBikeData.csv', 
                        encoding='unicode_escape')
@@ -70,7 +62,3 @@ if __name__ == "__main__":
     NullImputer.fit_transform(data)
 
     print(data.shape)
-
-
-
-
