@@ -1,0 +1,14 @@
+raw_data:
+  train_data_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/raw_data/train_data.csv"
+  val_data_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/raw_data/validation_data.csv"
+  test_data_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/raw_data/test_data.csv"
+
+transformed_data:
+  train_data_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/transformed_data/train_data.csv"
+  val_data_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/transformed_data/validation_data.csv"
+  test_data_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/transformed_data/test_data.csv"
+
+components:
+  pipeline_component_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/pipeline-components/"
+  transformer_component_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/transformer-components/"
+

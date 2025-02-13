@@ -1,6 +1,39 @@
 import pandas as pd
 import os
 
+import yaml
+
+import cloudpickle
+from sklearn.pipeline import Pipeline
+
+#folder to load config file
+CONFIG_PATH = r"config/"
+
+# Function to load yaml configuration file
+def load_config(config_name: str) -> dict:
+    """
+    Load configuration file
+
+    This function load the configuration file which
+    consists of all the paths, and other miscellaneous
+    contents.
+
+    Parameters
+    ----------
+        config_path: str
+            Path to the configuration file
+
+    Returns
+    -------
+        dict
+            Dictionary of configurations
+    """
+    with open(os.path.join(CONFIG_PATH, config_name)) as config_file:
+        config = yaml.safe_load(config_file)
+
+    return config
+
+
 # Function to save DataFrame with error handling
 def save_dataframe(df: pd.DataFrame, path: str) -> None:
     try:
@@ -28,4 +61,21 @@ def save_dataframe(df: pd.DataFrame, path: str) -> None:
 
     return
 
+# Function to save Pipeline Components
+def save_pipeline_components(pipeline_obj, transformer_root, pipeline_root):
+    transformer_directory = os.path.dirname(transformer_root)
+    pipeline_directory = os.path.dirname(pipeline_root)
+
+    os.makedirs(transformer_directory, exist_ok=True), os.makedirs(pipeline_directory, exist_ok=True)
+
+    for key in pipeline_obj.__dict__.keys():
+        if type(pipeline_obj.__dict__[key]) != Pipeline:
+            with open(f"{transformer_root}/{key}.pkl", 'wb') as f:
+                cloudpickle.dump(pipeline_obj.__dict__[key], f)
+
+        else:
+            with open(f"{pipeline_root}/{key}.pkl", 'wb') as f:
+                cloudpickle.dump(pipeline_obj.__dict__[key], f)
+
+    return
 

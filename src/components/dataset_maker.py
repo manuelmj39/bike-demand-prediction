@@ -32,6 +32,7 @@ class TrainValTestSplitter(DatasetSplitter):
         val_df = df[self.train_split_cnt:self.train_split_cnt + self.val_split_cnt].reset_index(drop=True)
         test_df = df[self.train_split_cnt + self.val_split_cnt: self.train_split_cnt + self.val_split_cnt + self.test_split_cnt].reset_index(drop=True)
 
+
         print("Splitted the Dataset Succesfully \n")
         return train_df, val_df, test_df
     
@@ -41,11 +42,10 @@ class TrainValTestSplitter(DatasetSplitter):
         print(f"Test set has {self.test_split_cnt}")
 
 
-
-if __name__ == "__main__":
-    data = pd.read_csv('/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/raw_data/SeoulBikeData.csv', 
-                       encoding='unicode_escape')
+# if __name__ == "__main__":
+#     data = pd.read_csv('/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/raw_data/SeoulBikeData.csv', 
+#                        encoding='unicode_escape')
     
-    train_test_splitter = TrainValTestSplitter()
-    train_df, val_df, test_df = train_test_splitter.split_dataframe(data)  
-    train_test_splitter.get_split_counts()
+#     train_test_splitter = TrainValTestSplitter()
+#     train_df, val_df, test_df = train_test_splitter.split_dataframe(data)  
+#     train_test_splitter.get_split_counts()

@@ -49,7 +49,7 @@ class PreProcessPipeline:
             ])
         
         return self.preprocessing_pipeline
-
+    
 
 if __name__ == "__main__":
     import pandas as pd
@@ -59,18 +59,8 @@ if __name__ == "__main__":
 
     print(data.shape)
     print(data.columns)
-    
+
     data = feature_pipe.fit_transform(data)
 
     print(data.shape)
     print(data.columns)
-
-
-
-    
-
-
-        
-
-
-

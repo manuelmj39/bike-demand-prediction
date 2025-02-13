@@ -52,13 +52,13 @@ class NullValueImputer(BaseEstimator, TransformerMixin):
         return X
 
 
-if __name__ == "__main__":
-    data = pd.read_csv('/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/raw_data/SeoulBikeData.csv', 
-                       encoding='unicode_escape')
+# if __name__ == "__main__":
+#     data = pd.read_csv('/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/raw_data/SeoulBikeData.csv', 
+#                        encoding='unicode_escape')
     
-    data = clean_col_names(data)
+#     data = clean_col_names(data)
     
-    NullImputer = NullValueImputer()
-    NullImputer.fit_transform(data)
+#     NullImputer = NullValueImputer()
+#     NullImputer.fit_transform(data)
 
-    print(data.shape)
+#     print(data.shape)
