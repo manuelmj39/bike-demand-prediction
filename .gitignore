@@ -174,3 +174,7 @@ venv/
 
 # Data Bases
 *.db
+
+# ML Flow files
+mlruns/
+mlartifacts/
