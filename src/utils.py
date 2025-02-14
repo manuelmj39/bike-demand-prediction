@@ -33,7 +33,6 @@ def load_config(config_name: str) -> dict:
 
     return config
 
-
 # Function to save DataFrame with error handling
 def save_dataframe(df: pd.DataFrame, path: str) -> None:
     try:
@@ -79,3 +78,20 @@ def save_pipeline_components(pipeline_obj, transformer_root, pipeline_root):
 
     return
 
+# Function to save model 
+def save_model(model, model_path):
+    with open(model_path, 'wb') as f:
+        cloudpickle.dump(model, f)
+                         
+    return 
+                
+class XySplitter:
+    def __init__(self, df, target='rented_bike_count'):
+        self.df = df
+        self.target = target
+
+    def split(self):
+        X = self.df.drop(self.target, axis=1)
+        y = self.df[self.target]
+        return X, y
+    

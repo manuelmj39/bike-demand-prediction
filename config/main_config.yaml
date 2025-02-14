@@ -12,3 +12,6 @@ components:
   pipeline_component_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/pipeline-components/"
   transformer_component_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/transformer-components/"
 
+model:
+  model_path: "/Users/manueljohn/Training/github-projects/bike-demand-prediction/artifacts/registered-model/"
+  model_name: "bike_demand_prediction_model.pkl"
